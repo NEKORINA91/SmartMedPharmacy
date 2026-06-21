@@ -62,6 +62,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CustomerDashboardForm.Designer.cs" />
+    <Compile Include="Forms\CustomerDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerDialogForm.Designer.cs" />
     <Compile Include="Forms\CustomerRegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,9 +74,17 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\LoginForm.Designer.cs" />
-    <Compile Include="Forms\ManageMedicineForm.cs" />
+    <Compile Include="Forms\ManageCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManageCustomerForm.Designer.cs" />
+    <Compile Include="Forms\ManageMedicineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ManageMedicineForm.Designer.cs" />
-    <Compile Include="Forms\MedicineDialogForm.cs" />
+    <Compile Include="Forms\MedicineDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\MedicineDialogForm.Designer.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
