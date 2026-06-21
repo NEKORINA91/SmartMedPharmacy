@@ -76,9 +76,7 @@ namespace SmartMedPharmacy.Forms
 
         private void btnManageOrders_Click(object sender, EventArgs e)
         {
-            panelHome.Visible = false;
-            MessageBox.Show("Manage Orders form coming in a future step!",
-                "Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadIntoContentPanel(new ManageOrdersForm());
         }
 
         private void btnReports_Click(object sender, EventArgs e)
