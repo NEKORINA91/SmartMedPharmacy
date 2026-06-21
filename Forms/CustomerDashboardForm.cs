@@ -40,16 +40,12 @@ namespace SmartMedPharmacy.Forms
 
         private void btnSearchMedicines_Click(object sender, EventArgs e)
         {
-            panelHome.Visible = false;
-            MessageBox.Show("Search & Place Order form coming in the next step!",
-                "Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadIntoContentPanel(new SearchMedicineForm(_currentCustomer));
         }
 
         private void btnMyOrders_Click(object sender, EventArgs e)
         {
-            panelHome.Visible = false;
-            MessageBox.Show("Track Orders form coming in a future step!",
-                "Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadIntoContentPanel(new TrackOrdersForm(_currentCustomer));
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
