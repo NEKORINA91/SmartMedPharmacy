@@ -66,9 +66,7 @@ namespace SmartMedPharmacy.Forms
 
         private void btnManageMedicine_Click(object sender, EventArgs e)
         {
-            panelHome.Visible = false;
-            MessageBox.Show("Manage Medicine form coming in the next step!",
-                "Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadIntoContentPanel(new ManageMedicineForm());
         }
 
         private void btnManageCustomers_Click(object sender, EventArgs e)
