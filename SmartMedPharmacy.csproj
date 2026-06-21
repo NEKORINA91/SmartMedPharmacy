@@ -64,6 +64,7 @@
     <Compile Include="Forms\CustomerRegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\CustomerRegisterForm.Designer.cs" />
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
