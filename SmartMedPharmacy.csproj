@@ -49,13 +49,12 @@
   <ItemGroup>
     <Compile Include="DAL\AdminDAL.cs" />
     <Compile Include="DAL\CustomerDAL.cs" />
+    <Compile Include="DAL\DashboardDAL.cs" />
     <Compile Include="DAL\DbConnection.cs" />
     <Compile Include="DAL\MedicineDAL.cs" />
     <Compile Include="DAL\OrderDAL.cs" />
     <Compile Include="DAL\PasswordHelper.cs" />
-    <Compile Include="Forms\AdminDashboardForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\AdminDashboardForm.cs" />
     <Compile Include="Forms\AdminDashboardForm.Designer.cs" />
     <Compile Include="Forms\CustomerDashboardForm.cs">
       <SubType>Form</SubType>
