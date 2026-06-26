@@ -81,9 +81,7 @@ namespace SmartMedPharmacy.Forms
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            panelHome.Visible = false;
-            MessageBox.Show("Reports form coming in a future step!",
-                "Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadIntoContentPanel(new ReportsForm());
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
