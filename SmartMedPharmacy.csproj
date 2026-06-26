@@ -184,6 +184,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CustomerDialogForm.Designer.cs" />
+    <Compile Include="Forms\CustomerProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerProfileForm.Designer.cs" />
     <Compile Include="Forms\CustomerRegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>

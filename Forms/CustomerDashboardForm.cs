@@ -15,10 +15,6 @@ namespace SmartMedPharmacy.Forms
             lblWelcome.Text = "Welcome, " + _currentCustomer.FullName;
         }
 
-        /// <summary>
-        /// Swaps whatever is currently in the content panel for a new
-        /// child form/control - same pattern as the Admin Dashboard.
-        /// </summary>
         private void LoadIntoContentPanel(Form childForm)
         {
             panelHome.Visible = false;
@@ -50,9 +46,12 @@ namespace SmartMedPharmacy.Forms
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            panelHome.Visible = false;
-            MessageBox.Show("Profile management form coming in a future step!",
-                "Coming Soon", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var profileForm = new CustomerProfileForm(_currentCustomer);
+            if (profileForm.ShowDialog() == DialogResult.OK)
+            {
+                // Update the welcome label in case FullName was changed
+                lblWelcome.Text = "Welcome, " + _currentCustomer.FullName;
+            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
