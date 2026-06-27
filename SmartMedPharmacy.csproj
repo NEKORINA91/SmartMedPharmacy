@@ -204,9 +204,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ManageMedicineForm.Designer.cs" />
-    <Compile Include="Forms\ManageOrdersForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\ManageOrdersForm.cs" />
     <Compile Include="Forms\ManageOrdersForm.Designer.cs" />
     <Compile Include="Forms\MedicineDialogForm.cs">
       <SubType>Form</SubType>
