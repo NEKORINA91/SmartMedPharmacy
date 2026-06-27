@@ -65,8 +65,11 @@ namespace SmartMedPharmacy.Forms
         private void btnHome_Click(object sender, EventArgs e)
         {
             panelContent.Controls.Clear();
+            if (!panelContent.Controls.Contains(panelHome))
+                panelContent.Controls.Add(panelHome);
+            panelHome.Dock = DockStyle.Fill;
             panelHome.Visible = true;
-            LoadStats();
+            LoadStats(); // only in Admin version, remove this line for Customer
         }
 
         private void btnManageMedicine_Click(object sender, EventArgs e)
@@ -161,6 +164,13 @@ namespace SmartMedPharmacy.Forms
             }
             e.CellStyle.Font      = UITheme.FontSmall;
             e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+
+      
+
+        private void AdminDashboardForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

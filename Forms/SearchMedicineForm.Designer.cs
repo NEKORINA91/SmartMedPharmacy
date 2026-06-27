@@ -6,249 +6,350 @@ namespace SmartMedPharmacy.Forms
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
         private void InitializeComponent()
         {
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.lblSearchName = new System.Windows.Forms.Label();
-            this.txtSearchName = new System.Windows.Forms.TextBox();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.lblMinPrice = new System.Windows.Forms.Label();
-            this.txtMinPrice = new System.Windows.Forms.TextBox();
-            this.lblMaxPrice = new System.Windows.Forms.Label();
-            this.txtMaxPrice = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnClearSearch = new System.Windows.Forms.Button();
-            this.dgvMedicines = new System.Windows.Forms.DataGridView();
-            this.lblQuantity = new System.Windows.Forms.Label();
-            this.numQuantity = new System.Windows.Forms.NumericUpDown();
-            this.btnAddToCart = new System.Windows.Forms.Button();
-            this.lblCartTitle = new System.Windows.Forms.Label();
-            this.dgvCart = new System.Windows.Forms.DataGridView();
-            this.btnIncreaseQty = new System.Windows.Forms.Button();
-            this.btnDecreaseQty = new System.Windows.Forms.Button();
+            this.lblTitle          = new System.Windows.Forms.Label();
+            this.pnlSearchBar      = new System.Windows.Forms.Panel();
+            this.lblSearchName     = new System.Windows.Forms.Label();
+            this.txtSearchName     = new System.Windows.Forms.TextBox();
+            this.lblCategory       = new System.Windows.Forms.Label();
+            this.cmbCategory       = new System.Windows.Forms.ComboBox();
+            this.lblMinPrice       = new System.Windows.Forms.Label();
+            this.txtMinPrice       = new System.Windows.Forms.TextBox();
+            this.lblMaxPrice       = new System.Windows.Forms.Label();
+            this.txtMaxPrice       = new System.Windows.Forms.TextBox();
+            this.btnSearch         = new System.Windows.Forms.Button();
+            this.btnClearSearch    = new System.Windows.Forms.Button();
+            this.dgvMedicines      = new System.Windows.Forms.DataGridView();
+            this.pnlAddToCart      = new System.Windows.Forms.Panel();
+            this.lblQuantity       = new System.Windows.Forms.Label();
+            this.numQuantity       = new System.Windows.Forms.NumericUpDown();
+            this.btnAddToCart      = new System.Windows.Forms.Button();
+            this.lblCartTitle      = new System.Windows.Forms.Label();
+            this.dgvCart           = new System.Windows.Forms.DataGridView();
+            this.pnlCartActions    = new System.Windows.Forms.Panel();
+            this.btnIncreaseQty    = new System.Windows.Forms.Button();
+            this.btnDecreaseQty    = new System.Windows.Forms.Button();
             this.btnRemoveFromCart = new System.Windows.Forms.Button();
-            this.lblCartTotal = new System.Windows.Forms.Label();
+            this.lblCartTotal      = new System.Windows.Forms.Label();
             this.lblCartTotalValue = new System.Windows.Forms.Label();
-            this.btnPlaceOrder = new System.Windows.Forms.Button();
+            this.btnPlaceOrder     = new System.Windows.Forms.Button();
+
+            this.pnlSearchBar.SuspendLayout();
+            this.pnlAddToCart.SuspendLayout();
+            this.pnlCartActions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
 
-            // lblTitle
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(0, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(220, 25);
-            this.lblTitle.Text = "Search Medicines";
+            // Form
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor           = UITheme.Background;
+            this.ClientSize          = new System.Drawing.Size(800, 560);
+            this.Font                = UITheme.FontBody;
+            this.Name                = "SearchMedicineForm";
+            this.Text                = "Search Medicines";
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.pnlSearchBar);
+            this.Controls.Add(this.dgvMedicines);
+            this.Controls.Add(this.pnlAddToCart);
+            this.Controls.Add(this.lblCartTitle);
+            this.Controls.Add(this.dgvCart);
+            this.Controls.Add(this.pnlCartActions);
 
-            // lblSearchName
-            this.lblSearchName.AutoSize = true;
-            this.lblSearchName.Location = new System.Drawing.Point(0, 40);
-            this.lblSearchName.Name = "lblSearchName";
-            this.lblSearchName.Size = new System.Drawing.Size(45, 15);
-            this.lblSearchName.Text = "Name:";
+            // Title
+            this.lblTitle.AutoSize  = true;
+            this.lblTitle.Font      = UITheme.FontHeading;
+            this.lblTitle.ForeColor = UITheme.TextPrimary;
+            this.lblTitle.Location  = new System.Drawing.Point(0, 0);
+            this.lblTitle.Name      = "lblTitle";
+            this.lblTitle.Text      = "Search Medicines";
 
-            // txtSearchName
-            this.txtSearchName.Location = new System.Drawing.Point(0, 58);
-            this.txtSearchName.Name = "txtSearchName";
-            this.txtSearchName.Size = new System.Drawing.Size(140, 23);
+            // ── Search bar panel ─────────────────────────────────────────────────
+            this.pnlSearchBar.BackColor = UITheme.Surface;
+            this.pnlSearchBar.Location  = new System.Drawing.Point(0, 36);
+            this.pnlSearchBar.Name      = "pnlSearchBar";
+            this.pnlSearchBar.Size      = new System.Drawing.Size(800, 52);
+            this.pnlSearchBar.Controls.Add(this.lblSearchName);
+            this.pnlSearchBar.Controls.Add(this.txtSearchName);
+            this.pnlSearchBar.Controls.Add(this.lblCategory);
+            this.pnlSearchBar.Controls.Add(this.cmbCategory);
+            this.pnlSearchBar.Controls.Add(this.lblMinPrice);
+            this.pnlSearchBar.Controls.Add(this.txtMinPrice);
+            this.pnlSearchBar.Controls.Add(this.lblMaxPrice);
+            this.pnlSearchBar.Controls.Add(this.txtMaxPrice);
+            this.pnlSearchBar.Controls.Add(this.btnSearch);
+            this.pnlSearchBar.Controls.Add(this.btnClearSearch);
 
-            // lblCategory
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(155, 40);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(60, 15);
-            this.lblCategory.Text = "Category:";
+            this.lblSearchName.AutoSize  = true;
+            this.lblSearchName.Font      = UITheme.FontSmall;
+            this.lblSearchName.ForeColor = UITheme.TextSecondary;
+            this.lblSearchName.Location  = new System.Drawing.Point(8, 6);
+            this.lblSearchName.Name      = "lblSearchName";
+            this.lblSearchName.Text      = "Name";
 
-            // cmbCategory
+            this.txtSearchName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchName.Location    = new System.Drawing.Point(8, 22);
+            this.txtSearchName.Name        = "txtSearchName";
+            this.txtSearchName.Size        = new System.Drawing.Size(140, 23);
+
+            this.lblCategory.AutoSize  = true;
+            this.lblCategory.Font      = UITheme.FontSmall;
+            this.lblCategory.ForeColor = UITheme.TextSecondary;
+            this.lblCategory.Location  = new System.Drawing.Point(158, 6);
+            this.lblCategory.Name      = "lblCategory";
+            this.lblCategory.Text      = "Category";
+
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategory.Location = new System.Drawing.Point(155, 58);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(140, 23);
+            this.cmbCategory.FlatStyle     = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbCategory.Location      = new System.Drawing.Point(158, 22);
+            this.cmbCategory.Name          = "cmbCategory";
+            this.cmbCategory.Size          = new System.Drawing.Size(140, 23);
 
-            // lblMinPrice
-            this.lblMinPrice.AutoSize = true;
-            this.lblMinPrice.Location = new System.Drawing.Point(310, 40);
-            this.lblMinPrice.Name = "lblMinPrice";
-            this.lblMinPrice.Size = new System.Drawing.Size(60, 15);
-            this.lblMinPrice.Text = "Min Price:";
+            this.lblMinPrice.AutoSize  = true;
+            this.lblMinPrice.Font      = UITheme.FontSmall;
+            this.lblMinPrice.ForeColor = UITheme.TextSecondary;
+            this.lblMinPrice.Location  = new System.Drawing.Point(310, 6);
+            this.lblMinPrice.Name      = "lblMinPrice";
+            this.lblMinPrice.Text      = "Min Price";
 
-            // txtMinPrice
-            this.txtMinPrice.Location = new System.Drawing.Point(310, 58);
-            this.txtMinPrice.Name = "txtMinPrice";
-            this.txtMinPrice.Size = new System.Drawing.Size(80, 23);
+            this.txtMinPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMinPrice.Location    = new System.Drawing.Point(310, 22);
+            this.txtMinPrice.Name        = "txtMinPrice";
+            this.txtMinPrice.Size        = new System.Drawing.Size(80, 23);
 
-            // lblMaxPrice
-            this.lblMaxPrice.AutoSize = true;
-            this.lblMaxPrice.Location = new System.Drawing.Point(400, 40);
-            this.lblMaxPrice.Name = "lblMaxPrice";
-            this.lblMaxPrice.Size = new System.Drawing.Size(63, 15);
-            this.lblMaxPrice.Text = "Max Price:";
+            this.lblMaxPrice.AutoSize  = true;
+            this.lblMaxPrice.Font      = UITheme.FontSmall;
+            this.lblMaxPrice.ForeColor = UITheme.TextSecondary;
+            this.lblMaxPrice.Location  = new System.Drawing.Point(400, 6);
+            this.lblMaxPrice.Name      = "lblMaxPrice";
+            this.lblMaxPrice.Text      = "Max Price";
 
-            // txtMaxPrice
-            this.txtMaxPrice.Location = new System.Drawing.Point(400, 58);
-            this.txtMaxPrice.Name = "txtMaxPrice";
-            this.txtMaxPrice.Size = new System.Drawing.Size(80, 23);
+            this.txtMaxPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMaxPrice.Location    = new System.Drawing.Point(400, 22);
+            this.txtMaxPrice.Name        = "txtMaxPrice";
+            this.txtMaxPrice.Size        = new System.Drawing.Size(80, 23);
 
-            // btnSearch
-            this.btnSearch.Location = new System.Drawing.Point(490, 57);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 25);
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // Search button
+            this.btnSearch.BackColor = UITheme.Accent;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.Font      = UITheme.FontButton;
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location  = new System.Drawing.Point(492, 20);
+            this.btnSearch.Name      = "btnSearch";
+            this.btnSearch.Size      = new System.Drawing.Size(80, 26);
+            this.btnSearch.Text      = "Search";
+            this.btnSearch.Cursor    = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click    += new System.EventHandler(this.btnSearch_Click);
 
-            // btnClearSearch
-            this.btnClearSearch.Location = new System.Drawing.Point(570, 57);
-            this.btnClearSearch.Name = "btnClearSearch";
-            this.btnClearSearch.Size = new System.Drawing.Size(70, 25);
-            this.btnClearSearch.Text = "Clear";
-            this.btnClearSearch.UseVisualStyleBackColor = true;
-            this.btnClearSearch.Click += new System.EventHandler(this.btnClearSearch_Click);
+            // Clear button
+            this.btnClearSearch.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
+            this.btnClearSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearSearch.FlatAppearance.BorderSize = 0;
+            this.btnClearSearch.Font      = UITheme.FontButton;
+            this.btnClearSearch.ForeColor = UITheme.TextPrimary;
+            this.btnClearSearch.Location  = new System.Drawing.Point(580, 20);
+            this.btnClearSearch.Name      = "btnClearSearch";
+            this.btnClearSearch.Size      = new System.Drawing.Size(70, 26);
+            this.btnClearSearch.Text      = "Clear";
+            this.btnClearSearch.Cursor    = System.Windows.Forms.Cursors.Hand;
+            this.btnClearSearch.UseVisualStyleBackColor = false;
+            this.btnClearSearch.Click    += new System.EventHandler(this.btnClearSearch_Click);
 
-            // dgvMedicines
-            this.dgvMedicines.AllowUserToAddRows = false;
+            // ── Medicines grid ────────────────────────────────────────────────────
+            this.dgvMedicines.AllowUserToAddRows    = false;
             this.dgvMedicines.AllowUserToDeleteRows = false;
-            this.dgvMedicines.ReadOnly = true;
-            this.dgvMedicines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedicines.MultiSelect = false;
-            this.dgvMedicines.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMedicines.Location = new System.Drawing.Point(0, 95);
-            this.dgvMedicines.Name = "dgvMedicines";
-            this.dgvMedicines.RowHeadersVisible = false;
-            this.dgvMedicines.Size = new System.Drawing.Size(740, 160);
+            this.dgvMedicines.ReadOnly              = true;
+            this.dgvMedicines.SelectionMode         = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMedicines.MultiSelect            = false;
+            this.dgvMedicines.RowHeadersVisible      = false;
+            this.dgvMedicines.BorderStyle            = System.Windows.Forms.BorderStyle.None;
+            this.dgvMedicines.CellBorderStyle        = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvMedicines.BackgroundColor        = UITheme.Surface;
+            this.dgvMedicines.GridColor              = UITheme.Border;
+            this.dgvMedicines.Font                   = UITheme.FontBody;
+            this.dgvMedicines.AutoSizeColumnsMode    = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMedicines.Location               = new System.Drawing.Point(0, 98);
+            this.dgvMedicines.Name                   = "dgvMedicines";
+            this.dgvMedicines.Size                   = new System.Drawing.Size(800, 180);
+            this.dgvMedicines.EnableHeadersVisualStyles = false;
+            this.dgvMedicines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMedicines.ColumnHeadersDefaultCellStyle.BackColor          = UITheme.Background;
+            this.dgvMedicines.ColumnHeadersDefaultCellStyle.ForeColor          = UITheme.TextSecondary;
+            this.dgvMedicines.ColumnHeadersDefaultCellStyle.Font               = UITheme.FontTableHeader;
+            this.dgvMedicines.ColumnHeadersDefaultCellStyle.SelectionBackColor = UITheme.Background;
+            this.dgvMedicines.ColumnHeadersDefaultCellStyle.SelectionForeColor = UITheme.TextSecondary;
+            this.dgvMedicines.DefaultCellStyle.BackColor          = UITheme.Surface;
+            this.dgvMedicines.DefaultCellStyle.ForeColor          = UITheme.TextPrimary;
+            this.dgvMedicines.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(224, 247, 246);
+            this.dgvMedicines.DefaultCellStyle.SelectionForeColor = UITheme.TextPrimary;
+            this.dgvMedicines.DefaultCellStyle.Padding            = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dgvMedicines.RowTemplate.Height                   = 34;
+            this.dgvMedicines.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
 
-            // lblQuantity
-            this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Location = new System.Drawing.Point(0, 265);
-            this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(60, 15);
-            this.lblQuantity.Text = "Quantity:";
+            // ── Add to cart row ───────────────────────────────────────────────────
+            this.pnlAddToCart.BackColor = UITheme.Surface;
+            this.pnlAddToCart.Location  = new System.Drawing.Point(0, 288);
+            this.pnlAddToCart.Name      = "pnlAddToCart";
+            this.pnlAddToCart.Size      = new System.Drawing.Size(800, 44);
+            this.pnlAddToCart.Controls.Add(this.lblQuantity);
+            this.pnlAddToCart.Controls.Add(this.numQuantity);
+            this.pnlAddToCart.Controls.Add(this.btnAddToCart);
 
-            // numQuantity
-            this.numQuantity.Location = new System.Drawing.Point(70, 263);
-            this.numQuantity.Minimum = 1;
-            this.numQuantity.Maximum = 1000;
-            this.numQuantity.Value = 1;
-            this.numQuantity.Name = "numQuantity";
-            this.numQuantity.Size = new System.Drawing.Size(70, 23);
+            this.lblQuantity.AutoSize  = true;
+            this.lblQuantity.Font      = UITheme.FontBodyBold;
+            this.lblQuantity.ForeColor = UITheme.TextSecondary;
+            this.lblQuantity.Location  = new System.Drawing.Point(10, 14);
+            this.lblQuantity.Name      = "lblQuantity";
+            this.lblQuantity.Text      = "Qty:";
 
-            // btnAddToCart
-            this.btnAddToCart.Location = new System.Drawing.Point(160, 261);
-            this.btnAddToCart.Name = "btnAddToCart";
-            this.btnAddToCart.Size = new System.Drawing.Size(110, 27);
-            this.btnAddToCart.Text = "Add to Cart";
-            this.btnAddToCart.UseVisualStyleBackColor = true;
-            this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
+            this.numQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numQuantity.Location    = new System.Drawing.Point(44, 10);
+            this.numQuantity.Minimum     = 1;
+            this.numQuantity.Maximum     = 1000;
+            this.numQuantity.Value       = 1;
+            this.numQuantity.Name        = "numQuantity";
+            this.numQuantity.Size        = new System.Drawing.Size(64, 23);
 
-            // lblCartTitle
-            this.lblCartTitle.AutoSize = true;
-            this.lblCartTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCartTitle.Location = new System.Drawing.Point(0, 305);
-            this.lblCartTitle.Name = "lblCartTitle";
-            this.lblCartTitle.Size = new System.Drawing.Size(100, 21);
-            this.lblCartTitle.Text = "Your Cart";
+            this.btnAddToCart.BackColor = UITheme.Accent;
+            this.btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddToCart.FlatAppearance.BorderSize = 0;
+            this.btnAddToCart.Font      = UITheme.FontButton;
+            this.btnAddToCart.ForeColor = System.Drawing.Color.White;
+            this.btnAddToCart.Location  = new System.Drawing.Point(118, 9);
+            this.btnAddToCart.Name      = "btnAddToCart";
+            this.btnAddToCart.Size      = new System.Drawing.Size(110, 26);
+            this.btnAddToCart.Text      = "+ Add to Cart";
+            this.btnAddToCart.Cursor    = System.Windows.Forms.Cursors.Hand;
+            this.btnAddToCart.UseVisualStyleBackColor = false;
+            this.btnAddToCart.Click    += new System.EventHandler(this.btnAddToCart_Click);
 
-            // dgvCart
-            this.dgvCart.AllowUserToAddRows = false;
+            // Cart title
+            this.lblCartTitle.AutoSize  = true;
+            this.lblCartTitle.Font      = UITheme.FontSubHeading;
+            this.lblCartTitle.ForeColor = UITheme.TextPrimary;
+            this.lblCartTitle.Location  = new System.Drawing.Point(0, 342);
+            this.lblCartTitle.Name      = "lblCartTitle";
+            this.lblCartTitle.Text      = "Your Cart";
+
+            // ── Cart grid ─────────────────────────────────────────────────────────
+            this.dgvCart.AllowUserToAddRows    = false;
             this.dgvCart.AllowUserToDeleteRows = false;
-            this.dgvCart.ReadOnly = true;
-            this.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCart.MultiSelect = false;
-            this.dgvCart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCart.Location = new System.Drawing.Point(0, 335);
-            this.dgvCart.Name = "dgvCart";
-            this.dgvCart.RowHeadersVisible = false;
-            this.dgvCart.Size = new System.Drawing.Size(740, 100);
+            this.dgvCart.ReadOnly              = true;
+            this.dgvCart.SelectionMode         = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCart.MultiSelect            = false;
+            this.dgvCart.RowHeadersVisible      = false;
+            this.dgvCart.BorderStyle            = System.Windows.Forms.BorderStyle.None;
+            this.dgvCart.CellBorderStyle        = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvCart.BackgroundColor        = UITheme.Surface;
+            this.dgvCart.GridColor              = UITheme.Border;
+            this.dgvCart.Font                   = UITheme.FontBody;
+            this.dgvCart.AutoSizeColumnsMode    = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCart.Location               = new System.Drawing.Point(0, 368);
+            this.dgvCart.Name                   = "dgvCart";
+            this.dgvCart.Size                   = new System.Drawing.Size(800, 110);
+            this.dgvCart.EnableHeadersVisualStyles = false;
+            this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCart.ColumnHeadersDefaultCellStyle.BackColor          = UITheme.Background;
+            this.dgvCart.ColumnHeadersDefaultCellStyle.ForeColor          = UITheme.TextSecondary;
+            this.dgvCart.ColumnHeadersDefaultCellStyle.Font               = UITheme.FontTableHeader;
+            this.dgvCart.ColumnHeadersDefaultCellStyle.SelectionBackColor = UITheme.Background;
+            this.dgvCart.ColumnHeadersDefaultCellStyle.SelectionForeColor = UITheme.TextSecondary;
+            this.dgvCart.DefaultCellStyle.BackColor          = UITheme.Surface;
+            this.dgvCart.DefaultCellStyle.ForeColor          = UITheme.TextPrimary;
+            this.dgvCart.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(224, 247, 246);
+            this.dgvCart.DefaultCellStyle.SelectionForeColor = UITheme.TextPrimary;
+            this.dgvCart.DefaultCellStyle.Padding            = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dgvCart.RowTemplate.Height                   = 32;
 
-            // btnIncreaseQty
-            this.btnIncreaseQty.Location = new System.Drawing.Point(0, 445);
+            // ── Cart action bar ───────────────────────────────────────────────────
+            this.pnlCartActions.BackColor = UITheme.Background;
+            this.pnlCartActions.Location  = new System.Drawing.Point(0, 486);
+            this.pnlCartActions.Name      = "pnlCartActions";
+            this.pnlCartActions.Size      = new System.Drawing.Size(800, 52);
+            this.pnlCartActions.Controls.Add(this.btnIncreaseQty);
+            this.pnlCartActions.Controls.Add(this.btnDecreaseQty);
+            this.pnlCartActions.Controls.Add(this.btnRemoveFromCart);
+            this.pnlCartActions.Controls.Add(this.lblCartTotal);
+            this.pnlCartActions.Controls.Add(this.lblCartTotalValue);
+            this.pnlCartActions.Controls.Add(this.btnPlaceOrder);
+
+            System.Action<System.Windows.Forms.Button, string, System.Drawing.Color, System.Drawing.Color, int> sb =
+                (btn, text, bg, fg, left) =>
+                {
+                    btn.BackColor = bg;
+                    btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                    btn.FlatAppearance.BorderSize = 0;
+                    btn.Font      = UITheme.FontButton;
+                    btn.ForeColor = fg;
+                    btn.Location  = new System.Drawing.Point(left, 10);
+                    btn.Size      = new System.Drawing.Size(36, 30);
+                    btn.Text      = text;
+                    btn.Cursor    = System.Windows.Forms.Cursors.Hand;
+                    btn.UseVisualStyleBackColor = false;
+                };
+
             this.btnIncreaseQty.Name = "btnIncreaseQty";
-            this.btnIncreaseQty.Size = new System.Drawing.Size(35, 27);
-            this.btnIncreaseQty.Text = "+";
-            this.btnIncreaseQty.UseVisualStyleBackColor = true;
+            sb(this.btnIncreaseQty, "+", UITheme.Accent, System.Drawing.Color.White, 0);
             this.btnIncreaseQty.Click += new System.EventHandler(this.btnIncreaseQty_Click);
 
-            // btnDecreaseQty
-            this.btnDecreaseQty.Location = new System.Drawing.Point(40, 445);
             this.btnDecreaseQty.Name = "btnDecreaseQty";
-            this.btnDecreaseQty.Size = new System.Drawing.Size(35, 27);
-            this.btnDecreaseQty.Text = "-";
-            this.btnDecreaseQty.UseVisualStyleBackColor = true;
+            sb(this.btnDecreaseQty, "−", System.Drawing.Color.FromArgb(226, 232, 240), UITheme.TextPrimary, 42);
             this.btnDecreaseQty.Click += new System.EventHandler(this.btnDecreaseQty_Click);
 
-            // btnRemoveFromCart
-            this.btnRemoveFromCart.Location = new System.Drawing.Point(85, 445);
-            this.btnRemoveFromCart.Name = "btnRemoveFromCart";
-            this.btnRemoveFromCart.Size = new System.Drawing.Size(100, 27);
-            this.btnRemoveFromCart.Text = "Remove";
-            this.btnRemoveFromCart.UseVisualStyleBackColor = true;
-            this.btnRemoveFromCart.Click += new System.EventHandler(this.btnRemoveFromCart_Click);
+            this.btnRemoveFromCart.BackColor = System.Drawing.Color.FromArgb(254, 226, 226);
+            this.btnRemoveFromCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveFromCart.FlatAppearance.BorderSize = 0;
+            this.btnRemoveFromCart.Font      = UITheme.FontButton;
+            this.btnRemoveFromCart.ForeColor = System.Drawing.Color.FromArgb(185, 28, 28);
+            this.btnRemoveFromCart.Location  = new System.Drawing.Point(84, 10);
+            this.btnRemoveFromCart.Name      = "btnRemoveFromCart";
+            this.btnRemoveFromCart.Size      = new System.Drawing.Size(90, 30);
+            this.btnRemoveFromCart.Text      = "Remove";
+            this.btnRemoveFromCart.Cursor    = System.Windows.Forms.Cursors.Hand;
+            this.btnRemoveFromCart.UseVisualStyleBackColor = false;
+            this.btnRemoveFromCart.Click    += new System.EventHandler(this.btnRemoveFromCart_Click);
 
-            // lblCartTotal
-            this.lblCartTotal.AutoSize = true;
-            this.lblCartTotal.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblCartTotal.Location = new System.Drawing.Point(420, 450);
-            this.lblCartTotal.Name = "lblCartTotal";
-            this.lblCartTotal.Size = new System.Drawing.Size(40, 20);
-            this.lblCartTotal.Text = "Total:";
+            this.lblCartTotal.AutoSize  = true;
+            this.lblCartTotal.Font      = UITheme.FontBodyBold;
+            this.lblCartTotal.ForeColor = UITheme.TextSecondary;
+            this.lblCartTotal.Location  = new System.Drawing.Point(440, 18);
+            this.lblCartTotal.Name      = "lblCartTotal";
+            this.lblCartTotal.Text      = "Total:";
 
-            // lblCartTotalValue
-            this.lblCartTotalValue.AutoSize = true;
-            this.lblCartTotalValue.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblCartTotalValue.Location = new System.Drawing.Point(470, 450);
-            this.lblCartTotalValue.Name = "lblCartTotalValue";
-            this.lblCartTotalValue.Size = new System.Drawing.Size(70, 20);
-            this.lblCartTotalValue.Text = "Rs. 0.00";
+            this.lblCartTotalValue.AutoSize  = true;
+            this.lblCartTotalValue.Font      = new System.Drawing.Font("Segoe UI", 11f, System.Drawing.FontStyle.Bold);
+            this.lblCartTotalValue.ForeColor = UITheme.Accent;
+            this.lblCartTotalValue.Location  = new System.Drawing.Point(490, 16);
+            this.lblCartTotalValue.Name      = "lblCartTotalValue";
+            this.lblCartTotalValue.Text      = "Rs. 0.00";
 
-            // btnPlaceOrder
-            this.btnPlaceOrder.Location = new System.Drawing.Point(600, 444);
-            this.btnPlaceOrder.Name = "btnPlaceOrder";
-            this.btnPlaceOrder.Size = new System.Drawing.Size(140, 30);
-            this.btnPlaceOrder.Text = "Place Order";
-            this.btnPlaceOrder.Enabled = false;
-            this.btnPlaceOrder.UseVisualStyleBackColor = true;
-            this.btnPlaceOrder.Click += new System.EventHandler(this.btnPlaceOrder_Click);
+            this.btnPlaceOrder.BackColor = UITheme.Accent;
+            this.btnPlaceOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlaceOrder.FlatAppearance.BorderSize = 0;
+            this.btnPlaceOrder.Font      = UITheme.FontButton;
+            this.btnPlaceOrder.ForeColor = System.Drawing.Color.White;
+            this.btnPlaceOrder.Location  = new System.Drawing.Point(648, 8);
+            this.btnPlaceOrder.Name      = "btnPlaceOrder";
+            this.btnPlaceOrder.Size      = new System.Drawing.Size(140, 34);
+            this.btnPlaceOrder.Text      = "Place Order";
+            this.btnPlaceOrder.Enabled   = false;
+            this.btnPlaceOrder.Cursor    = System.Windows.Forms.Cursors.Hand;
+            this.btnPlaceOrder.UseVisualStyleBackColor = false;
+            this.btnPlaceOrder.Click    += new System.EventHandler(this.btnPlaceOrder_Click);
 
-            // SearchMedicineForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(740, 480);
-            this.Controls.Add(this.btnPlaceOrder);
-            this.Controls.Add(this.lblCartTotalValue);
-            this.Controls.Add(this.lblCartTotal);
-            this.Controls.Add(this.btnRemoveFromCart);
-            this.Controls.Add(this.btnDecreaseQty);
-            this.Controls.Add(this.btnIncreaseQty);
-            this.Controls.Add(this.dgvCart);
-            this.Controls.Add(this.lblCartTitle);
-            this.Controls.Add(this.btnAddToCart);
-            this.Controls.Add(this.numQuantity);
-            this.Controls.Add(this.lblQuantity);
-            this.Controls.Add(this.dgvMedicines);
-            this.Controls.Add(this.btnClearSearch);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtMaxPrice);
-            this.Controls.Add(this.lblMaxPrice);
-            this.Controls.Add(this.txtMinPrice);
-            this.Controls.Add(this.lblMinPrice);
-            this.Controls.Add(this.cmbCategory);
-            this.Controls.Add(this.lblCategory);
-            this.Controls.Add(this.txtSearchName);
-            this.Controls.Add(this.lblSearchName);
-            this.Controls.Add(this.lblTitle);
-            this.Name = "SearchMedicineForm";
-            this.Text = "SearchMedicineForm";
+            // Resume
+            this.pnlSearchBar.ResumeLayout(false);   this.pnlSearchBar.PerformLayout();
+            this.pnlAddToCart.ResumeLayout(false);   this.pnlAddToCart.PerformLayout();
+            this.pnlCartActions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
@@ -256,28 +357,31 @@ namespace SmartMedPharmacy.Forms
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblSearchName;
-        private System.Windows.Forms.TextBox txtSearchName;
-        private System.Windows.Forms.Label lblCategory;
-        private System.Windows.Forms.ComboBox cmbCategory;
-        private System.Windows.Forms.Label lblMinPrice;
-        private System.Windows.Forms.TextBox txtMinPrice;
-        private System.Windows.Forms.Label lblMaxPrice;
-        private System.Windows.Forms.TextBox txtMaxPrice;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button btnClearSearch;
-        private System.Windows.Forms.DataGridView dgvMedicines;
-        private System.Windows.Forms.Label lblQuantity;
-        private System.Windows.Forms.NumericUpDown numQuantity;
-        private System.Windows.Forms.Button btnAddToCart;
-        private System.Windows.Forms.Label lblCartTitle;
-        private System.Windows.Forms.DataGridView dgvCart;
-        private System.Windows.Forms.Button btnIncreaseQty;
-        private System.Windows.Forms.Button btnDecreaseQty;
-        private System.Windows.Forms.Button btnRemoveFromCart;
-        private System.Windows.Forms.Label lblCartTotal;
-        private System.Windows.Forms.Label lblCartTotalValue;
-        private System.Windows.Forms.Button btnPlaceOrder;
+        private System.Windows.Forms.Label            lblTitle;
+        private System.Windows.Forms.Panel            pnlSearchBar;
+        private System.Windows.Forms.Label            lblSearchName;
+        private System.Windows.Forms.TextBox          txtSearchName;
+        private System.Windows.Forms.Label            lblCategory;
+        private System.Windows.Forms.ComboBox         cmbCategory;
+        private System.Windows.Forms.Label            lblMinPrice;
+        private System.Windows.Forms.TextBox          txtMinPrice;
+        private System.Windows.Forms.Label            lblMaxPrice;
+        private System.Windows.Forms.TextBox          txtMaxPrice;
+        private System.Windows.Forms.Button           btnSearch;
+        private System.Windows.Forms.Button           btnClearSearch;
+        private System.Windows.Forms.DataGridView     dgvMedicines;
+        private System.Windows.Forms.Panel            pnlAddToCart;
+        private System.Windows.Forms.Label            lblQuantity;
+        private System.Windows.Forms.NumericUpDown    numQuantity;
+        private System.Windows.Forms.Button           btnAddToCart;
+        private System.Windows.Forms.Label            lblCartTitle;
+        private System.Windows.Forms.DataGridView     dgvCart;
+        private System.Windows.Forms.Panel            pnlCartActions;
+        private System.Windows.Forms.Button           btnIncreaseQty;
+        private System.Windows.Forms.Button           btnDecreaseQty;
+        private System.Windows.Forms.Button           btnRemoveFromCart;
+        private System.Windows.Forms.Label            lblCartTotal;
+        private System.Windows.Forms.Label            lblCartTotalValue;
+        private System.Windows.Forms.Button           btnPlaceOrder;
     }
 }
