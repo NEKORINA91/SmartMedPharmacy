@@ -6,307 +6,390 @@ namespace SmartMedPharmacy.Forms
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
+        #region Windows Form Designer generated code
+
         private void InitializeComponent()
         {
-            this.panelSidebar = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.btnReports = new System.Windows.Forms.Button();
-            this.btnManageOrders = new System.Windows.Forms.Button();
-            this.btnManageCustomers = new System.Windows.Forms.Button();
-            this.btnManageMedicine = new System.Windows.Forms.Button();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.lblSidebarTitle = new System.Windows.Forms.Label();
-            this.panelMain = new System.Windows.Forms.Panel();
-            this.panelContent = new System.Windows.Forms.Panel();
-            this.panelHome = new System.Windows.Forms.Panel();
-            this.tileActiveOrders = new System.Windows.Forms.Panel();
+            this.pnlSidebar           = new System.Windows.Forms.Panel();
+            this.pnlLogoArea          = new System.Windows.Forms.Panel();
+            this.lblLogoSmart         = new System.Windows.Forms.Label();
+            this.lblLogoMed           = new System.Windows.Forms.Label();
+            this.btnHome              = new System.Windows.Forms.Button();
+            this.btnManageMedicine    = new System.Windows.Forms.Button();
+            this.btnManageCustomers   = new System.Windows.Forms.Button();
+            this.btnManageOrders      = new System.Windows.Forms.Button();
+            this.btnReports           = new System.Windows.Forms.Button();
+            this.btnLogout            = new System.Windows.Forms.Button();
+            this.pnlLogout            = new System.Windows.Forms.Panel();
+            this.panelContent         = new System.Windows.Forms.Panel();
+            this.panelHome            = new System.Windows.Forms.Panel();
+            this.lblWelcome           = new System.Windows.Forms.Label();
+            this.pnlStats             = new System.Windows.Forms.Panel();
+            this.cardSales            = new System.Windows.Forms.Panel();
+            this.lblSalesTitle        = new System.Windows.Forms.Label();
+            this.lblTotalSalesValue   = new System.Windows.Forms.Label();
+            this.cardStock            = new System.Windows.Forms.Panel();
+            this.lblStockTitle        = new System.Windows.Forms.Label();
+            this.lblStockValue        = new System.Windows.Forms.Label();
+            this.cardOrders           = new System.Windows.Forms.Panel();
+            this.lblOrdersTitle       = new System.Windows.Forms.Label();
             this.lblActiveOrdersValue = new System.Windows.Forms.Label();
-            this.lblActiveOrdersTitle = new System.Windows.Forms.Label();
-            this.tileStock = new System.Windows.Forms.Panel();
-            this.lblStockValue = new System.Windows.Forms.Label();
-            this.lblStockTitle = new System.Windows.Forms.Label();
-            this.tileTotalSales = new System.Windows.Forms.Panel();
-            this.lblTotalSalesValue = new System.Windows.Forms.Label();
-            this.lblTotalSalesTitle = new System.Windows.Forms.Label();
-            this.lblWelcome = new System.Windows.Forms.Label();
-            this.panelSidebar.SuspendLayout();
-            this.panelMain.SuspendLayout();
+            this.cardLowStock         = new System.Windows.Forms.Panel();
+            this.lblLowStockTitle     = new System.Windows.Forms.Label();
+            this.lblLowStockValue2    = new System.Windows.Forms.Label();
+            this.lblRecentOrders      = new System.Windows.Forms.Label();
+            this.dgvRecentOrders      = new System.Windows.Forms.DataGridView();
+            this.colOrderID           = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCustomer          = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDate              = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotal             = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus            = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
+            this.pnlLogout.SuspendLayout();
+            this.pnlSidebar.SuspendLayout();
+            this.pnlLogoArea.SuspendLayout();
+            this.panelContent.SuspendLayout();
             this.panelHome.SuspendLayout();
-            this.tileActiveOrders.SuspendLayout();
-            this.tileStock.SuspendLayout();
-            this.tileTotalSales.SuspendLayout();
+            this.pnlStats.SuspendLayout();
+            this.cardSales.SuspendLayout();
+            this.cardStock.SuspendLayout();
+            this.cardOrders.SuspendLayout();
+            this.cardLowStock.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecentOrders)).BeginInit();
             this.SuspendLayout();
 
-            // panelSidebar
-            this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(33, 47, 61);
-            this.panelSidebar.Controls.Add(this.btnLogout);
-            this.panelSidebar.Controls.Add(this.btnReports);
-            this.panelSidebar.Controls.Add(this.btnManageOrders);
-            this.panelSidebar.Controls.Add(this.btnManageCustomers);
-            this.panelSidebar.Controls.Add(this.btnManageMedicine);
-            this.panelSidebar.Controls.Add(this.btnHome);
-            this.panelSidebar.Controls.Add(this.lblSidebarTitle);
-            this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSidebar.Location = new System.Drawing.Point(0, 0);
-            this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(200, 600);
+            // Form
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor           = UITheme.Background;
+            this.ClientSize          = new System.Drawing.Size(1100, 680);
+            this.Font                = UITheme.FontBody;
+            this.FormBorderStyle     = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.MinimumSize         = new System.Drawing.Size(900, 580);
+            this.Name                = "AdminDashboardForm";
+            this.StartPosition       = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text                = "SmartMed Admin";
+            this.FormClosed         += new System.Windows.Forms.FormClosedEventHandler(this.AdminDashboardForm_FormClosed);
+            this.Controls.Add(this.panelContent);
+            this.Controls.Add(this.pnlSidebar);
 
-            // lblSidebarTitle
-            this.lblSidebarTitle.AutoSize = true;
-            this.lblSidebarTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblSidebarTitle.ForeColor = System.Drawing.Color.White;
-            this.lblSidebarTitle.Location = new System.Drawing.Point(20, 20);
-            this.lblSidebarTitle.Name = "lblSidebarTitle";
-            this.lblSidebarTitle.Size = new System.Drawing.Size(120, 21);
-            this.lblSidebarTitle.Text = "SmartMed Admin";
+            // Sidebar
+            this.pnlSidebar.BackColor = UITheme.Sidebar;
+            this.pnlSidebar.Dock      = System.Windows.Forms.DockStyle.Left;
+            this.pnlSidebar.Name      = "pnlSidebar";
+            this.pnlSidebar.Width     = UITheme.SidebarWidth;
+            this.pnlSidebar.Controls.Add(this.pnlLogoArea);
+            this.pnlSidebar.Controls.Add(this.btnHome);
+            this.pnlSidebar.Controls.Add(this.btnManageMedicine);
+            this.pnlSidebar.Controls.Add(this.btnManageCustomers);
+            this.pnlSidebar.Controls.Add(this.btnManageOrders);
+            this.pnlSidebar.Controls.Add(this.btnReports);
+            this.pnlSidebar.Controls.Add(this.pnlLogout);
 
-            // btnHome
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.Location = new System.Drawing.Point(0, 80);
+            this.pnlLogoArea.BackColor = UITheme.Sidebar;
+            this.pnlLogoArea.Location  = new System.Drawing.Point(0, 0);
+            this.pnlLogoArea.Name      = "pnlLogoArea";
+            this.pnlLogoArea.Size      = new System.Drawing.Size(UITheme.SidebarWidth, 72);
+            this.pnlLogoArea.Controls.Add(this.lblLogoSmart);
+            this.pnlLogoArea.Controls.Add(this.lblLogoMed);
+
+            this.lblLogoSmart.AutoSize  = true;
+            this.lblLogoSmart.BackColor = System.Drawing.Color.Transparent;
+            this.lblLogoSmart.Font      = UITheme.FontLogo;
+            this.lblLogoSmart.ForeColor = System.Drawing.Color.White;
+            this.lblLogoSmart.Location  = new System.Drawing.Point(16, 22);
+            this.lblLogoSmart.Name      = "lblLogoSmart";
+            this.lblLogoSmart.Text      = "SMART";
+
+            this.lblLogoMed.AutoSize    = true;
+            this.lblLogoMed.BackColor   = System.Drawing.Color.Transparent;
+            this.lblLogoMed.Font        = UITheme.FontLogo;
+            this.lblLogoMed.ForeColor   = UITheme.Accent;
+            this.lblLogoMed.Location    = new System.Drawing.Point(86, 22);
+            this.lblLogoMed.Name        = "lblLogoMed";
+            this.lblLogoMed.Text        = "MED";
+
+            System.Action<System.Windows.Forms.Button, string, int, bool> nav =
+                (btn, text, top, active) =>
+                {
+                    btn.BackColor = active ? UITheme.SidebarActive : UITheme.Sidebar;
+                    btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                    btn.FlatAppearance.BorderSize         = 0;
+                    btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(45, 58, 74);
+                    btn.FlatAppearance.MouseDownBackColor = UITheme.AccentDark;
+                    btn.Font      = UITheme.FontSidebarItem;
+                    btn.ForeColor = active ? System.Drawing.Color.White : UITheme.SidebarText;
+                    btn.Location  = new System.Drawing.Point(0, top);
+                    btn.Size      = new System.Drawing.Size(UITheme.SidebarWidth, UITheme.SidebarItemHeight);
+                    btn.TabStop   = false;
+                    btn.Text      = "   " + text;
+                    btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+                    btn.Cursor    = System.Windows.Forms.Cursors.Hand;
+                    btn.UseVisualStyleBackColor = false;
+                };
+
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(200, 40);
-            this.btnHome.Text = "Dashboard";
-            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.BackColor = System.Drawing.Color.FromArgb(33, 47, 61);
+            nav(this.btnHome, "Dashboard", 80, true);
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
 
-            // btnManageMedicine
-            this.btnManageMedicine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManageMedicine.ForeColor = System.Drawing.Color.White;
-            this.btnManageMedicine.FlatAppearance.BorderSize = 0;
-            this.btnManageMedicine.Location = new System.Drawing.Point(0, 120);
             this.btnManageMedicine.Name = "btnManageMedicine";
-            this.btnManageMedicine.Size = new System.Drawing.Size(200, 40);
-            this.btnManageMedicine.Text = "Manage Medicine";
-            this.btnManageMedicine.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManageMedicine.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnManageMedicine.UseVisualStyleBackColor = false;
-            this.btnManageMedicine.BackColor = System.Drawing.Color.FromArgb(33, 47, 61);
+            nav(this.btnManageMedicine, "Manage Medicines", 124, false);
             this.btnManageMedicine.Click += new System.EventHandler(this.btnManageMedicine_Click);
 
-            // btnManageCustomers
-            this.btnManageCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManageCustomers.ForeColor = System.Drawing.Color.White;
-            this.btnManageCustomers.FlatAppearance.BorderSize = 0;
-            this.btnManageCustomers.Location = new System.Drawing.Point(0, 160);
             this.btnManageCustomers.Name = "btnManageCustomers";
-            this.btnManageCustomers.Size = new System.Drawing.Size(200, 40);
-            this.btnManageCustomers.Text = "Manage Customers";
-            this.btnManageCustomers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManageCustomers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnManageCustomers.UseVisualStyleBackColor = false;
-            this.btnManageCustomers.BackColor = System.Drawing.Color.FromArgb(33, 47, 61);
+            nav(this.btnManageCustomers, "Manage Customers", 168, false);
             this.btnManageCustomers.Click += new System.EventHandler(this.btnManageCustomers_Click);
 
-            // btnManageOrders
-            this.btnManageOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManageOrders.ForeColor = System.Drawing.Color.White;
-            this.btnManageOrders.FlatAppearance.BorderSize = 0;
-            this.btnManageOrders.Location = new System.Drawing.Point(0, 200);
             this.btnManageOrders.Name = "btnManageOrders";
-            this.btnManageOrders.Size = new System.Drawing.Size(200, 40);
-            this.btnManageOrders.Text = "Manage Orders";
-            this.btnManageOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManageOrders.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnManageOrders.UseVisualStyleBackColor = false;
-            this.btnManageOrders.BackColor = System.Drawing.Color.FromArgb(33, 47, 61);
+            nav(this.btnManageOrders, "View Orders", 212, false);
             this.btnManageOrders.Click += new System.EventHandler(this.btnManageOrders_Click);
 
-            // btnReports
-            this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReports.ForeColor = System.Drawing.Color.White;
-            this.btnReports.FlatAppearance.BorderSize = 0;
-            this.btnReports.Location = new System.Drawing.Point(0, 240);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(200, 40);
-            this.btnReports.Text = "Reports";
-            this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReports.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnReports.UseVisualStyleBackColor = false;
-            this.btnReports.BackColor = System.Drawing.Color.FromArgb(33, 47, 61);
+            nav(this.btnReports, "Reports", 256, false);
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
 
-            // btnLogout
+            // pnlLogout — docked to bottom of sidebar so it always shows
+            this.pnlLogout.BackColor = UITheme.Sidebar;
+            this.pnlLogout.Dock      = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlLogout.Name      = "pnlLogout";
+            this.pnlLogout.Size      = new System.Drawing.Size(UITheme.SidebarWidth, UITheme.SidebarItemHeight);
+            this.pnlLogout.Controls.Add(this.btnLogout);
+
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.Location = new System.Drawing.Point(0, 520);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(200, 40);
-            this.btnLogout.Text = "Logout";
+            this.btnLogout.FlatAppearance.BorderSize         = 0;
+            this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(45, 58, 74);
+            this.btnLogout.Dock      = System.Windows.Forms.DockStyle.Fill;
+            this.btnLogout.Font      = UITheme.FontSidebarItem;
+            this.btnLogout.ForeColor = UITheme.SidebarText;
+            this.btnLogout.Name      = "btnLogout";
+            this.btnLogout.TabStop   = false;
+            this.btnLogout.Text      = "   Logout";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnLogout.Cursor    = System.Windows.Forms.Cursors.Hand;
             this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(33, 47, 61);
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
 
-            // panelMain
-            this.panelMain.Controls.Add(this.panelContent);
-            this.panelMain.Controls.Add(this.panelHome);
-            this.panelMain.Controls.Add(this.lblWelcome);
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(200, 0);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Padding = new System.Windows.Forms.Padding(30);
-            this.panelMain.Size = new System.Drawing.Size(800, 600);
+            // panelContent
+            this.panelContent.BackColor = UITheme.Background;
+            this.panelContent.Dock      = System.Windows.Forms.DockStyle.Fill;
+            this.panelContent.Name      = "panelContent";
+            this.panelContent.Controls.Add(this.panelHome);
 
-            // lblWelcome
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblWelcome.Location = new System.Drawing.Point(30, 30);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(180, 25);
-            this.lblWelcome.Text = "Welcome, Admin";
+            // panelHome
+            this.panelHome.BackColor = UITheme.Background;
+            this.panelHome.Dock      = System.Windows.Forms.DockStyle.Fill;
+            this.panelHome.Name      = "panelHome";
+            this.panelHome.Padding   = new System.Windows.Forms.Padding(UITheme.ContentPadding);
+            this.panelHome.Controls.Add(this.lblWelcome);
+            this.panelHome.Controls.Add(this.pnlStats);
+            this.panelHome.Controls.Add(this.lblRecentOrders);
+            this.panelHome.Controls.Add(this.dgvRecentOrders);
 
-            // panelHome (the stat tiles live in here, shown on dashboard home)
-            this.panelHome.Controls.Add(this.tileActiveOrders);
-            this.panelHome.Controls.Add(this.tileStock);
-            this.panelHome.Controls.Add(this.tileTotalSales);
-            this.panelHome.Location = new System.Drawing.Point(30, 80);
-            this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(740, 200);
+            this.lblWelcome.AutoSize  = true;
+            this.lblWelcome.Font      = UITheme.FontHeading;
+            this.lblWelcome.ForeColor = UITheme.TextPrimary;
+            this.lblWelcome.Location  = new System.Drawing.Point(UITheme.ContentPadding, UITheme.ContentPadding);
+            this.lblWelcome.Name      = "lblWelcome";
+            this.lblWelcome.Text      = "Welcome, System Admin";
 
-            // tileTotalSales
-            this.tileTotalSales.BackColor = System.Drawing.Color.FromArgb(46, 134, 122);
-            this.tileTotalSales.Controls.Add(this.lblTotalSalesValue);
-            this.tileTotalSales.Controls.Add(this.lblTotalSalesTitle);
-            this.tileTotalSales.Location = new System.Drawing.Point(0, 0);
-            this.tileTotalSales.Name = "tileTotalSales";
-            this.tileTotalSales.Size = new System.Drawing.Size(230, 120);
+            // Stats row
+            this.pnlStats.BackColor = System.Drawing.Color.Transparent;
+            this.pnlStats.Location  = new System.Drawing.Point(UITheme.ContentPadding, 72);
+            this.pnlStats.Name      = "pnlStats";
+            this.pnlStats.Size      = new System.Drawing.Size(820, UITheme.StatCardHeight + 4);
+            this.pnlStats.Anchor    = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.pnlStats.Controls.Add(this.cardSales);
+            this.pnlStats.Controls.Add(this.cardStock);
+            this.pnlStats.Controls.Add(this.cardOrders);
+            this.pnlStats.Controls.Add(this.cardLowStock);
 
-            // lblTotalSalesTitle
-            this.lblTotalSalesTitle.AutoSize = true;
-            this.lblTotalSalesTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTotalSalesTitle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblTotalSalesTitle.Location = new System.Drawing.Point(20, 20);
-            this.lblTotalSalesTitle.Name = "lblTotalSalesTitle";
-            this.lblTotalSalesTitle.Size = new System.Drawing.Size(100, 19);
-            this.lblTotalSalesTitle.Text = "Total Sales";
+            System.Action<System.Windows.Forms.Panel, int> placeCard =
+                (card, col) =>
+                {
+                    card.BackColor   = UITheme.StatCardBg;
+                    card.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                    card.Location    = new System.Drawing.Point(col * (UITheme.StatCardWidth + 14), 0);
+                    card.Size        = new System.Drawing.Size(UITheme.StatCardWidth, UITheme.StatCardHeight);
+                };
 
-            // lblTotalSalesValue
-            this.lblTotalSalesValue.AutoSize = true;
-            this.lblTotalSalesValue.ForeColor = System.Drawing.Color.White;
-            this.lblTotalSalesValue.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.lblTotalSalesValue.Location = new System.Drawing.Point(20, 55);
-            this.lblTotalSalesValue.Name = "lblTotalSalesValue";
-            this.lblTotalSalesValue.Size = new System.Drawing.Size(100, 32);
-            this.lblTotalSalesValue.Text = "Rs. 0.00";
+            placeCard(this.cardSales,    0);
+            placeCard(this.cardStock,    1);
+            placeCard(this.cardOrders,   2);
+            placeCard(this.cardLowStock, 3);
 
-            // tileStock
-            this.tileStock.BackColor = System.Drawing.Color.FromArgb(52, 99, 168);
-            this.tileStock.Controls.Add(this.lblStockValue);
-            this.tileStock.Controls.Add(this.lblStockTitle);
-            this.tileStock.Location = new System.Drawing.Point(250, 0);
-            this.tileStock.Name = "tileStock";
-            this.tileStock.Size = new System.Drawing.Size(230, 120);
+            this.cardSales.Name = "cardSales";
+            this.cardSales.Controls.Add(this.lblSalesTitle);
+            this.cardSales.Controls.Add(this.lblTotalSalesValue);
 
-            // lblStockTitle
-            this.lblStockTitle.AutoSize = true;
-            this.lblStockTitle.ForeColor = System.Drawing.Color.White;
-            this.lblStockTitle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblStockTitle.Location = new System.Drawing.Point(20, 20);
-            this.lblStockTitle.Name = "lblStockTitle";
-            this.lblStockTitle.Size = new System.Drawing.Size(150, 19);
-            this.lblStockTitle.Text = "Medicines in Stock";
+            this.lblSalesTitle.AutoSize  = true;
+            this.lblSalesTitle.Font      = UITheme.FontStatLabel;
+            this.lblSalesTitle.ForeColor = UITheme.TextSecondary;
+            this.lblSalesTitle.Location  = new System.Drawing.Point(12, 10);
+            this.lblSalesTitle.Name      = "lblSalesTitle";
+            this.lblSalesTitle.Text      = "Today's Sales";
 
-            // lblStockValue
-            this.lblStockValue.AutoSize = true;
-            this.lblStockValue.ForeColor = System.Drawing.Color.White;
-            this.lblStockValue.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.lblStockValue.Location = new System.Drawing.Point(20, 55);
-            this.lblStockValue.Name = "lblStockValue";
-            this.lblStockValue.Size = new System.Drawing.Size(50, 32);
-            this.lblStockValue.Text = "0";
+            this.lblTotalSalesValue.AutoSize  = true;
+            this.lblTotalSalesValue.Font      = new System.Drawing.Font("Segoe UI", 16f, System.Drawing.FontStyle.Bold);
+            this.lblTotalSalesValue.ForeColor = UITheme.TextPrimary;
+            this.lblTotalSalesValue.Location  = new System.Drawing.Point(12, 30);
+            this.lblTotalSalesValue.Name      = "lblTotalSalesValue";
+            this.lblTotalSalesValue.Text      = "Rs. 0.00";
 
-            // tileActiveOrders
-            this.tileActiveOrders.BackColor = System.Drawing.Color.FromArgb(168, 109, 52);
-            this.tileActiveOrders.Controls.Add(this.lblActiveOrdersValue);
-            this.tileActiveOrders.Controls.Add(this.lblActiveOrdersTitle);
-            this.tileActiveOrders.Location = new System.Drawing.Point(500, 0);
-            this.tileActiveOrders.Name = "tileActiveOrders";
-            this.tileActiveOrders.Size = new System.Drawing.Size(230, 120);
+            this.cardStock.Name = "cardStock";
+            this.cardStock.Controls.Add(this.lblStockTitle);
+            this.cardStock.Controls.Add(this.lblStockValue);
 
-            // lblActiveOrdersTitle
-            this.lblActiveOrdersTitle.AutoSize = true;
-            this.lblActiveOrdersTitle.ForeColor = System.Drawing.Color.White;
-            this.lblActiveOrdersTitle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblActiveOrdersTitle.Location = new System.Drawing.Point(20, 20);
-            this.lblActiveOrdersTitle.Name = "lblActiveOrdersTitle";
-            this.lblActiveOrdersTitle.Size = new System.Drawing.Size(100, 19);
-            this.lblActiveOrdersTitle.Text = "Active Orders";
+            this.lblStockTitle.AutoSize  = true;
+            this.lblStockTitle.Font      = UITheme.FontStatLabel;
+            this.lblStockTitle.ForeColor = UITheme.TextSecondary;
+            this.lblStockTitle.Location  = new System.Drawing.Point(12, 10);
+            this.lblStockTitle.Name      = "lblStockTitle";
+            this.lblStockTitle.Text      = "Medicines in Stock";
 
-            // lblActiveOrdersValue
-            this.lblActiveOrdersValue.AutoSize = true;
-            this.lblActiveOrdersValue.ForeColor = System.Drawing.Color.White;
-            this.lblActiveOrdersValue.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.lblActiveOrdersValue.Location = new System.Drawing.Point(20, 55);
-            this.lblActiveOrdersValue.Name = "lblActiveOrdersValue";
-            this.lblActiveOrdersValue.Size = new System.Drawing.Size(50, 32);
-            this.lblActiveOrdersValue.Text = "0";
+            this.lblStockValue.AutoSize  = true;
+            this.lblStockValue.Font      = UITheme.FontStat;
+            this.lblStockValue.ForeColor = UITheme.TextPrimary;
+            this.lblStockValue.Location  = new System.Drawing.Point(12, 30);
+            this.lblStockValue.Name      = "lblStockValue";
+            this.lblStockValue.Text      = "0";
 
-            // panelContent (empty for now - future forms load in here)
-            this.panelContent.Location = new System.Drawing.Point(30, 80);
-            this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(740, 480);
-            this.panelContent.Dock = System.Windows.Forms.DockStyle.None;
+            this.cardOrders.Name = "cardOrders";
+            this.cardOrders.Controls.Add(this.lblOrdersTitle);
+            this.cardOrders.Controls.Add(this.lblActiveOrdersValue);
 
-            // AdminDashboardForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 600);
-            this.Controls.Add(this.panelMain);
-            this.Controls.Add(this.panelSidebar);
-            this.MinimumSize = new System.Drawing.Size(900, 600);
-            this.Name = "AdminDashboardForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Admin Dashboard - SmartMed Pharmacy";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminDashboardForm_FormClosed);
-            this.panelSidebar.ResumeLayout(false);
-            this.panelSidebar.PerformLayout();
-            this.panelMain.ResumeLayout(false);
-            this.panelMain.PerformLayout();
-            this.panelHome.ResumeLayout(false);
-            this.tileActiveOrders.ResumeLayout(false);
-            this.tileActiveOrders.PerformLayout();
-            this.tileStock.ResumeLayout(false);
-            this.tileStock.PerformLayout();
-            this.tileTotalSales.ResumeLayout(false);
-            this.tileTotalSales.PerformLayout();
+            this.lblOrdersTitle.AutoSize  = true;
+            this.lblOrdersTitle.Font      = UITheme.FontStatLabel;
+            this.lblOrdersTitle.ForeColor = UITheme.TextSecondary;
+            this.lblOrdersTitle.Location  = new System.Drawing.Point(12, 10);
+            this.lblOrdersTitle.Name      = "lblOrdersTitle";
+            this.lblOrdersTitle.Text      = "Active Orders";
+
+            this.lblActiveOrdersValue.AutoSize  = true;
+            this.lblActiveOrdersValue.Font      = UITheme.FontStat;
+            this.lblActiveOrdersValue.ForeColor = UITheme.TextPrimary;
+            this.lblActiveOrdersValue.Location  = new System.Drawing.Point(12, 30);
+            this.lblActiveOrdersValue.Name      = "lblActiveOrdersValue";
+            this.lblActiveOrdersValue.Text      = "0";
+
+            this.cardLowStock.Name = "cardLowStock";
+            this.cardLowStock.Controls.Add(this.lblLowStockTitle);
+            this.cardLowStock.Controls.Add(this.lblLowStockValue2);
+
+            this.lblLowStockTitle.AutoSize  = true;
+            this.lblLowStockTitle.Font      = UITheme.FontStatLabel;
+            this.lblLowStockTitle.ForeColor = UITheme.TextSecondary;
+            this.lblLowStockTitle.Location  = new System.Drawing.Point(12, 10);
+            this.lblLowStockTitle.Name      = "lblLowStockTitle";
+            this.lblLowStockTitle.Text      = "Low Stock Alerts";
+
+            this.lblLowStockValue2.AutoSize  = true;
+            this.lblLowStockValue2.Font      = UITheme.FontStat;
+            this.lblLowStockValue2.ForeColor = System.Drawing.Color.FromArgb(220, 38, 38);
+            this.lblLowStockValue2.Location  = new System.Drawing.Point(12, 30);
+            this.lblLowStockValue2.Name      = "lblLowStockValue2";
+            this.lblLowStockValue2.Text      = "-";
+
+            this.lblRecentOrders.AutoSize  = true;
+            this.lblRecentOrders.Font      = UITheme.FontSubHeading;
+            this.lblRecentOrders.ForeColor = UITheme.TextPrimary;
+            this.lblRecentOrders.Location  = new System.Drawing.Point(UITheme.ContentPadding, 184);
+            this.lblRecentOrders.Name      = "lblRecentOrders";
+            this.lblRecentOrders.Text      = "Recent Customer Orders";
+
+            this.dgvRecentOrders.AllowUserToAddRows    = false;
+            this.dgvRecentOrders.AllowUserToDeleteRows = false;
+            this.dgvRecentOrders.AllowUserToResizeRows = false;
+            this.dgvRecentOrders.ReadOnly              = true;
+            this.dgvRecentOrders.SelectionMode         = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRecentOrders.MultiSelect           = false;
+            this.dgvRecentOrders.RowHeadersVisible     = false;
+            this.dgvRecentOrders.BorderStyle           = System.Windows.Forms.BorderStyle.None;
+            this.dgvRecentOrders.CellBorderStyle       = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvRecentOrders.BackgroundColor       = UITheme.Surface;
+            this.dgvRecentOrders.GridColor             = UITheme.Border;
+            this.dgvRecentOrders.Font                  = UITheme.FontBody;
+            this.dgvRecentOrders.Location              = new System.Drawing.Point(UITheme.ContentPadding, 212);
+            this.dgvRecentOrders.Name                  = "dgvRecentOrders";
+            this.dgvRecentOrders.Size                  = new System.Drawing.Size(820, 390);
+            this.dgvRecentOrders.Anchor                = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Bottom;
+            this.dgvRecentOrders.AutoSizeColumnsMode   = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRecentOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRecentOrders.EnableHeadersVisualStyles   = false;
+
+            this.dgvRecentOrders.ColumnHeadersDefaultCellStyle.BackColor          = UITheme.Background;
+            this.dgvRecentOrders.ColumnHeadersDefaultCellStyle.ForeColor          = UITheme.TextSecondary;
+            this.dgvRecentOrders.ColumnHeadersDefaultCellStyle.Font               = UITheme.FontTableHeader;
+            this.dgvRecentOrders.ColumnHeadersDefaultCellStyle.SelectionBackColor = UITheme.Background;
+            this.dgvRecentOrders.ColumnHeadersDefaultCellStyle.SelectionForeColor = UITheme.TextSecondary;
+            this.dgvRecentOrders.DefaultCellStyle.BackColor          = UITheme.Surface;
+            this.dgvRecentOrders.DefaultCellStyle.ForeColor          = UITheme.TextPrimary;
+            this.dgvRecentOrders.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(224, 247, 246);
+            this.dgvRecentOrders.DefaultCellStyle.SelectionForeColor = UITheme.TextPrimary;
+            this.dgvRecentOrders.DefaultCellStyle.Padding            = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dgvRecentOrders.RowTemplate.Height                  = 36;
+            this.dgvRecentOrders.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
+
+            this.colOrderID.HeaderText = "Order ID"; this.colOrderID.DataPropertyName = "OrderID"; this.colOrderID.FillWeight = 80; this.colOrderID.Name = "colOrderID";
+            this.colCustomer.HeaderText = "Customer"; this.colCustomer.DataPropertyName = "CustomerName"; this.colCustomer.FillWeight = 160; this.colCustomer.Name = "colCustomer";
+            this.colDate.HeaderText = "Date"; this.colDate.DataPropertyName = "OrderDate"; this.colDate.FillWeight = 130; this.colDate.Name = "colDate";
+            this.colTotal.HeaderText = "Total"; this.colTotal.DataPropertyName = "TotalAmount"; this.colTotal.FillWeight = 90; this.colTotal.Name = "colTotal"; this.colTotal.DefaultCellStyle.Format = "C2";
+            this.colStatus.HeaderText = "Status"; this.colStatus.DataPropertyName = "Status"; this.colStatus.FillWeight = 100; this.colStatus.Name = "colStatus";
+            this.dgvRecentOrders.Columns.AddRange(this.colOrderID, this.colCustomer, this.colDate, this.colTotal, this.colStatus);
+
+            this.cardSales.ResumeLayout(false);    this.cardSales.PerformLayout();
+            this.cardStock.ResumeLayout(false);    this.cardStock.PerformLayout();
+            this.cardOrders.ResumeLayout(false);   this.cardOrders.PerformLayout();
+            this.cardLowStock.ResumeLayout(false); this.cardLowStock.PerformLayout();
+            this.pnlStats.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecentOrders)).EndInit();
+            this.panelHome.ResumeLayout(false);    this.panelHome.PerformLayout();
+            this.panelContent.ResumeLayout(false);
+            this.pnlLogoArea.ResumeLayout(false);  this.pnlLogoArea.PerformLayout();
+            this.pnlLogout.ResumeLayout(false);
+            this.pnlSidebar.ResumeLayout(false);
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Panel panelSidebar;
-        private System.Windows.Forms.Label lblSidebarTitle;
-        private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.Button btnManageMedicine;
-        private System.Windows.Forms.Button btnManageCustomers;
-        private System.Windows.Forms.Button btnManageOrders;
-        private System.Windows.Forms.Button btnReports;
-        private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Panel panelMain;
-        private System.Windows.Forms.Label lblWelcome;
-        private System.Windows.Forms.Panel panelHome;
-        private System.Windows.Forms.Panel panelContent;
-        private System.Windows.Forms.Panel tileTotalSales;
-        private System.Windows.Forms.Label lblTotalSalesTitle;
-        private System.Windows.Forms.Label lblTotalSalesValue;
-        private System.Windows.Forms.Panel tileStock;
-        private System.Windows.Forms.Label lblStockTitle;
-        private System.Windows.Forms.Label lblStockValue;
-        private System.Windows.Forms.Panel tileActiveOrders;
-        private System.Windows.Forms.Label lblActiveOrdersTitle;
-        private System.Windows.Forms.Label lblActiveOrdersValue;
+        #endregion
+
+        private System.Windows.Forms.Panel          pnlSidebar;
+        private System.Windows.Forms.Panel          pnlLogoArea;
+        private System.Windows.Forms.Label          lblLogoSmart;
+        private System.Windows.Forms.Label          lblLogoMed;
+        private System.Windows.Forms.Button         btnHome;
+        private System.Windows.Forms.Button         btnManageMedicine;
+        private System.Windows.Forms.Button         btnManageCustomers;
+        private System.Windows.Forms.Button         btnManageOrders;
+        private System.Windows.Forms.Button         btnReports;
+        private System.Windows.Forms.Button         btnLogout;
+        private System.Windows.Forms.Panel          pnlLogout;
+        private System.Windows.Forms.Panel          panelContent;
+        private System.Windows.Forms.Panel          panelHome;
+        private System.Windows.Forms.Label          lblWelcome;
+        private System.Windows.Forms.Panel          pnlStats;
+        private System.Windows.Forms.Panel          cardSales;
+        private System.Windows.Forms.Label          lblSalesTitle;
+        private System.Windows.Forms.Label          lblTotalSalesValue;
+        private System.Windows.Forms.Panel          cardStock;
+        private System.Windows.Forms.Label          lblStockTitle;
+        private System.Windows.Forms.Label          lblStockValue;
+        private System.Windows.Forms.Panel          cardOrders;
+        private System.Windows.Forms.Label          lblOrdersTitle;
+        private System.Windows.Forms.Label          lblActiveOrdersValue;
+        private System.Windows.Forms.Panel          cardLowStock;
+        private System.Windows.Forms.Label          lblLowStockTitle;
+        private System.Windows.Forms.Label          lblLowStockValue2;
+        private System.Windows.Forms.Label          lblRecentOrders;
+        private System.Windows.Forms.DataGridView   dgvRecentOrders;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOrderID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCustomer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
     }
 }

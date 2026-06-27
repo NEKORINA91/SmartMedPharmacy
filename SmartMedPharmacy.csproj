@@ -228,6 +228,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\TrackOrdersForm.Designer.cs" />
+    <Compile Include="Forms\UITheme.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Medicine.cs" />
