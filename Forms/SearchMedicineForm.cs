@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using SmartMedPharmacy.DAL;
@@ -18,6 +19,7 @@ namespace SmartMedPharmacy.Forms
         {
             InitializeComponent();
             _currentCustomer = customer;
+            dgvMedicines.CellFormatting += DgvMedicines_CellFormatting;
             LoadCategoryFilter();
             LoadMedicines();
             RefreshCartGrid();
@@ -27,10 +29,7 @@ namespace SmartMedPharmacy.Forms
 
         private void LoadMedicines()
         {
-            try
-            {
-                BindMedicineGrid(_medicineDal.GetAll());
-            }
+            try { BindMedicineGrid(_medicineDal.GetAll()); }
             catch (Exception ex)
             {
                 MessageBox.Show("Could not load medicines.\n\n" + ex.Message,
@@ -60,10 +59,44 @@ namespace SmartMedPharmacy.Forms
             void Hide(string col) { if (dgvMedicines.Columns[col] != null) dgvMedicines.Columns[col].Visible = false; }
             void Head(string col, string h) { if (dgvMedicines.Columns[col] != null) dgvMedicines.Columns[col].HeaderText = h; }
 
-            Hide("MedicineId"); Hide("Supplier"); Hide("CreatedAt"); Hide("IsLowStock");
+            Hide("MedicineId"); Hide("Supplier"); Hide("CreatedAt");
+            Hide("IsLowStock"); Hide("IsExpired"); Hide("IsExpiringSoon");
             Head("Name", "Name"); Head("Category", "Category");
             Head("Dosage", "Dosage"); Head("Price", "Price (Rs.)");
             Head("StockQuantity", "In Stock");
+
+            // Show expiry date with a friendly header
+            if (dgvMedicines.Columns["ExpiryDate"] != null)
+            {
+                dgvMedicines.Columns["ExpiryDate"].HeaderText = "Expiry";
+                dgvMedicines.Columns["ExpiryDate"].DefaultCellStyle.Format = "dd MMM yyyy";
+            }
+        }
+
+        // ── Expiry formatting for customer grid ───────────────────────────────────
+        private void DgvMedicines_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var med = dgvMedicines.Rows[e.RowIndex].DataBoundItem as Medicine;
+            if (med == null || !med.IsExpired) return;
+
+            // Grey out entire row
+            dgvMedicines.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+            dgvMedicines.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.FromArgb(160, 160, 160);
+            dgvMedicines.Rows[e.RowIndex].DefaultCellStyle.SelectionBackColor = Color.FromArgb(220, 220, 220);
+            dgvMedicines.Rows[e.RowIndex].DefaultCellStyle.SelectionForeColor = Color.FromArgb(130, 130, 130);
+
+            // Replace expiry date cell with "EXPIRED" badge
+            if (dgvMedicines.Columns["ExpiryDate"] != null &&
+                e.ColumnIndex == dgvMedicines.Columns["ExpiryDate"].Index)
+            {
+                e.Value = "EXPIRED";
+                e.CellStyle.BackColor = Color.FromArgb(220, 38, 38);
+                e.CellStyle.ForeColor = Color.White;
+                e.CellStyle.Font      = UITheme.FontBodyBold;
+                e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                e.FormattingApplied   = true;
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -75,7 +108,6 @@ namespace SmartMedPharmacy.Forms
                     ? null : cmbCategory.SelectedItem?.ToString();
 
                 decimal? minPrice = null, maxPrice = null;
-
                 if (!string.IsNullOrWhiteSpace(txtMinPrice.Text))
                 {
                     if (!decimal.TryParse(txtMinPrice.Text, out decimal mn))
@@ -88,7 +120,6 @@ namespace SmartMedPharmacy.Forms
                     { MessageBox.Show("Maximum price must be a number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
                     maxPrice = mx;
                 }
-
                 BindMedicineGrid(_medicineDal.Search(name, category, minPrice, maxPrice));
             }
             catch (Exception ex)
@@ -111,6 +142,15 @@ namespace SmartMedPharmacy.Forms
             Medicine selected = GetSelectedMedicine();
             if (selected == null)
             { MessageBox.Show("Please select a medicine first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
+
+            // Block expired medicines
+            if (selected.IsExpired)
+            {
+                MessageBox.Show(
+                    "\"" + selected.Name + "\" has expired and cannot be ordered.",
+                    "Expired Medicine", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             int quantity = (int)numQuantity.Value;
             var existing = _cart.FirstOrDefault(c => c.MedicineId == selected.MedicineId);
@@ -197,87 +237,40 @@ namespace SmartMedPharmacy.Forms
 
             try
             {
-                Order order = new Order(_currentCustomer.Id)
-                {
-                    TotalAmount = grandTotal
-                };
+                Order order = new Order(_currentCustomer.Id) { TotalAmount = grandTotal };
                 foreach (var line in _cart)
                     order.Items.Add(new OrderItem { MedicineId = line.MedicineId, Quantity = line.Quantity, UnitPrice = line.UnitPrice });
 
                 bool success = _orderDal.PlaceOrder(order);
-
                 if (success)
                 {
-                    // ── Styled order confirmation dialog ─────────────────────────
-                    using (var dlg = new System.Windows.Forms.Form())
+                    using (var dlg = new Form())
                     {
                         dlg.Text            = "Order Placed";
-                        dlg.ClientSize      = new System.Drawing.Size(420, 220);
-                        dlg.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-                        dlg.StartPosition   = System.Windows.Forms.FormStartPosition.CenterParent;
-                        dlg.MaximizeBox     = false;
-                        dlg.MinimizeBox     = false;
+                        dlg.ClientSize      = new Size(420, 220);
+                        dlg.FormBorderStyle = FormBorderStyle.FixedDialog;
+                        dlg.StartPosition   = FormStartPosition.CenterParent;
+                        dlg.MaximizeBox     = false; dlg.MinimizeBox = false;
                         dlg.BackColor       = UITheme.Background;
 
-                        // Teal header
-                        var header = new System.Windows.Forms.Panel
-                        {
-                            BackColor = UITheme.Accent,
-                            Location  = new System.Drawing.Point(0, 0),
-                            Size      = new System.Drawing.Size(420, 60)
-                        };
-                        var hTitle = new System.Windows.Forms.Label
-                        {
-                            Text      = "✔  Order Placed Successfully",
-                            Font      = new System.Drawing.Font("Segoe UI", 12f, System.Drawing.FontStyle.Bold),
-                            ForeColor = System.Drawing.Color.White,
-                            BackColor = System.Drawing.Color.Transparent,
-                            AutoSize  = true,
-                            Location  = new System.Drawing.Point(16, 18)
-                        };
+                        var header = new Panel { BackColor = UITheme.Accent, Location = new Point(0, 0), Size = new Size(420, 60) };
+                        var hTitle = new Label { Text = "✔  Order Placed Successfully", Font = new Font("Segoe UI", 12f, FontStyle.Bold), ForeColor = Color.White, BackColor = Color.Transparent, AutoSize = true, Location = new Point(16, 18) };
                         header.Controls.Add(hTitle);
                         dlg.Controls.Add(header);
 
-                        // Body
-                        var body = new System.Windows.Forms.Label
-                        {
-                            Text      = "Your order has been placed for Rs. " + grandTotal.ToString("N2") + ".\n\n" +
-                                        "You can track its status under  My Orders.",
-                            Font      = UITheme.FontBody,
-                            ForeColor = UITheme.TextPrimary,
-                            Location  = new System.Drawing.Point(20, 76),
-                            Size      = new System.Drawing.Size(380, 60)
-                        };
+                        var body = new Label { Text = "Your order has been placed for Rs. " + grandTotal.ToString("N2") + ".\n\nYou can track its status under  My Orders.", Font = UITheme.FontBody, ForeColor = UITheme.TextPrimary, Location = new Point(20, 76), Size = new Size(380, 60) };
                         dlg.Controls.Add(body);
 
-                        // OK button
-                        var ok = new System.Windows.Forms.Button
-                        {
-                            Text      = "OK",
-                            BackColor = UITheme.Accent,
-                            ForeColor = System.Drawing.Color.White,
-                            FlatStyle = System.Windows.Forms.FlatStyle.Flat,
-                            Font      = UITheme.FontButton,
-                            Location  = new System.Drawing.Point(300, 162),
-                            Size      = new System.Drawing.Size(100, 34),
-                            DialogResult = System.Windows.Forms.DialogResult.OK,
-                            Cursor    = System.Windows.Forms.Cursors.Hand
-                        };
+                        var ok = new Button { Text = "OK", BackColor = UITheme.Accent, ForeColor = Color.White, FlatStyle = FlatStyle.Flat, Font = UITheme.FontButton, Location = new Point(300, 162), Size = new Size(100, 34), DialogResult = DialogResult.OK, Cursor = Cursors.Hand };
                         ok.FlatAppearance.BorderSize = 0;
                         dlg.Controls.Add(ok);
                         dlg.AcceptButton = ok;
-
                         dlg.ShowDialog(this);
                     }
-
-                    _cart.Clear();
-                    RefreshCartGrid();
-                    LoadMedicines();
+                    _cart.Clear(); RefreshCartGrid(); LoadMedicines();
                 }
                 else
-                {
                     MessageBox.Show("Could not place the order. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
             catch (Exception ex)
             {
