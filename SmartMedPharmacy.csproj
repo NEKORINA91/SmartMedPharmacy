@@ -171,6 +171,7 @@
     <Compile Include="DAL\MedicineDAL.cs" />
     <Compile Include="DAL\OrderDAL.cs" />
     <Compile Include="DAL\PasswordHelper.cs" />
+    <Compile Include="DAL\PromotionDAL.cs" />
     <Compile Include="DAL\ReportsDAL.cs" />
     <Compile Include="Forms\AdminDashboardForm.cs">
       <SubType>Form</SubType>
@@ -210,6 +211,8 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ManageOrdersForm.Designer.cs" />
+    <Compile Include="Forms\ManagePromotionsForm.cs" />
+    <Compile Include="Forms\ManagePromotionsForm.Designer.cs" />
     <Compile Include="Forms\MedicineDialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,13 +221,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\OrderDetailsForm.Designer.cs" />
+    <Compile Include="Forms\PromoDialogForm.cs" />
+    <Compile Include="Forms\PromoDialogForm.Designer.cs" />
     <Compile Include="Forms\ReportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ReportsForm.Designer.cs" />
-    <Compile Include="Forms\SearchMedicineForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\SearchMedicineForm.cs" />
     <Compile Include="Forms\SearchMedicineForm.Designer.cs" />
     <Compile Include="Forms\TrackOrdersForm.cs">
       <SubType>Form</SubType>
@@ -236,6 +239,7 @@
     <Compile Include="Models\Medicine.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Promotion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AdminDashboardForm.resx">
