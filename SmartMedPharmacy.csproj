@@ -211,7 +211,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ManageOrdersForm.Designer.cs" />
-    <Compile Include="Forms\ManagePromotionsForm.cs" />
+    <Compile Include="Forms\ManagePromotionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ManagePromotionsForm.Designer.cs" />
     <Compile Include="Forms\MedicineDialogForm.cs">
       <SubType>Form</SubType>
@@ -221,13 +223,17 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\OrderDetailsForm.Designer.cs" />
-    <Compile Include="Forms\PromoDialogForm.cs" />
+    <Compile Include="Forms\PromoDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\PromoDialogForm.Designer.cs" />
     <Compile Include="Forms\ReportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ReportsForm.Designer.cs" />
-    <Compile Include="Forms\SearchMedicineForm.cs" />
+    <Compile Include="Forms\SearchMedicineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\SearchMedicineForm.Designer.cs" />
     <Compile Include="Forms\TrackOrdersForm.cs">
       <SubType>Form</SubType>
