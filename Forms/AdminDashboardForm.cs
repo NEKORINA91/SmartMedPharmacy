@@ -23,7 +23,7 @@ namespace SmartMedPharmacy.Forms
             cardOrders.Paint   += RoundedCard_Paint;
             cardLowStock.Paint += RoundedCard_Paint;
 
-            // Wire status badge colouring
+            // status colors
             dgvRecentOrders.CellFormatting += DgvOrders_CellFormatting;
 
             LoadStats();
@@ -173,6 +173,6 @@ namespace SmartMedPharmacy.Forms
 
         }
 
-        
+       
     }
 }

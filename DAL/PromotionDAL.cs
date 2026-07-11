@@ -21,7 +21,7 @@ namespace SmartMedPharmacy.DAL
             return list;
         }
 
-        // Only valid (active + not expired) promos for customer view
+        // Only valid (active + not expired) promos for customers
         public List<Promotion> GetActivePromos()
         {
             var list = new List<Promotion>();
@@ -38,7 +38,7 @@ namespace SmartMedPharmacy.DAL
             return list;
         }
 
-        // Validate a code against an order total — returns promo if eligible, null if not
+        // Validate a code against an order total eligibel or not
         public Promotion ValidateCode(string code, decimal orderTotal)
         {
             using (var conn = DbConnection.GetConnection())

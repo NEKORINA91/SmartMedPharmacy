@@ -14,10 +14,10 @@ namespace SmartMedPharmacy.Models
         public DateTime  CreatedAt     { get; set; }
         public DateTime? ExpiryDate    { get; set; }
 
-        // Parameterless constructor (used by DAL MapReader and object initialiser)
+        // Parameterless constructor used by DAL MapReader and object initialiser
         public Medicine() { }
 
-        // Original constructor — kept so existing code still compiles
+        // Original constructor 
         public Medicine(string name, string category, string dosage,
                         decimal price, int stockQuantity, string supplier)
         {

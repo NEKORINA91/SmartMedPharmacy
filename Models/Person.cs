@@ -27,10 +27,7 @@ namespace SmartMedPharmacy.Models
             CreatedAt = DateTime.Now;
         }
 
-        /// <summary>
-        /// Returns a short label describing the role of this person.
-        /// Overridden by Admin and Customer (polymorphism).
-        /// </summary>
+        /// Role Check
         public abstract string GetRole();
     }
 }

@@ -31,7 +31,7 @@ namespace SmartMedPharmacy.DAL
         }
 
         /// <summary>
-        /// Registers a new customer. Returns false if the username is taken.
+        /// User name check for new users
         /// </summary>
         public bool Register(Customer customer)
         {

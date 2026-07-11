@@ -3,10 +3,7 @@ using System.Text;
 
 namespace SmartMedPharmacy.DAL
 {
-    /// <summary>
-    /// Simple SHA-256 password hashing helper.
-    /// Passwords are never stored in plain text.
-    /// </summary>
+    
     public static class PasswordHelper
     {
         public static string Hash(string plainTextPassword)

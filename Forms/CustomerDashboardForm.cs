@@ -106,7 +106,7 @@ namespace SmartMedPharmacy.Forms
                     pnlPromos.Controls.Add(card);
                 }
             }
-            catch { /* non-critical — promos just won't show if DB fails */ }
+            catch { /* non-critical promos just won't show if DB fails */ }
         }
 
         // ── Navigation ───────────────────────────────────────────────────────────
@@ -209,5 +209,7 @@ namespace SmartMedPharmacy.Forms
             e.CellStyle.Font      = UITheme.FontSmall;
             e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
+
+        
     }
 }

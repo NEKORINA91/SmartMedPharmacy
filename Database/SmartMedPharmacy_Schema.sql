@@ -1,5 +1,3 @@
-
-
 CREATE DATABASE SmartMedPharmacyDB;
 GO
 
@@ -39,7 +37,8 @@ CREATE TABLE Medicine (
     Price DECIMAL(10,2) NOT NULL,
     StockQuantity INT NOT NULL DEFAULT 0,
     Supplier NVARCHAR(150) NULL,
-    CreatedAt DATETIME NOT NULL DEFAULT GETDATE()
+    CreatedAt DATETIME NOT NULL DEFAULT GETDATE(),
+    ExpiryDate DATETIME NULL
 );
 GO
 
@@ -63,3 +62,15 @@ CREATE TABLE OrderItems (
 );
 GO
 
+
+CREATE TABLE Promotions (
+    PromoId INT IDENTITY(1,1) PRIMARY KEY,
+    Code NVARCHAR(30) NOT NULL UNIQUE,
+    Description NVARCHAR(250) NULL,
+    MinOrderAmount DECIMAL(10,2) NOT NULL DEFAULT 0,
+    DiscountAmount DECIMAL(10,2) NOT NULL DEFAULT 0,
+    ExpiryDate DATETIME NOT NULL,
+    IsActive BIT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME NOT NULL DEFAULT GETDATE()
+);
+GO

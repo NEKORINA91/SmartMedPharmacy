@@ -118,7 +118,7 @@ namespace SmartMedPharmacy.Forms
                 MessageBox.Show("PDF saved successfully!\n\n" + saveDialog.FileName,
                     "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Open the file immediately so they can see it
+                
                 System.Diagnostics.Process.Start(saveDialog.FileName);
             }
             catch (Exception ex)
@@ -294,5 +294,7 @@ namespace SmartMedPharmacy.Forms
                 cell.Style.Fill.BackgroundColor = XLColor.LightGray;
             }
         }
+
+       
     }
 }

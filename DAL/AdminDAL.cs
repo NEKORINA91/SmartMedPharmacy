@@ -5,10 +5,7 @@ namespace SmartMedPharmacy.DAL
 {
     public class AdminDAL
     {
-        /// <summary>
-        /// Validates admin login credentials. Returns the Admin object
-        /// if successful, or null if username/password don't match.
-        /// </summary>
+        
         public Admin Login(string username, string password)
         {
             using (SqlConnection conn = DbConnection.GetConnection())

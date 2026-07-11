@@ -52,7 +52,7 @@ namespace SmartMedPharmacy.Forms
                     }
                 }
 
-                // If we reach here, login failed for whichever role was selected
+                // Login Fail and invalid role 
                 MessageBox.Show("Invalid username or password.", "Login Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Clear();
@@ -78,6 +78,11 @@ namespace SmartMedPharmacy.Forms
             {
                 Application.Exit();
             }
+        }
+
+        private void pnlCard_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

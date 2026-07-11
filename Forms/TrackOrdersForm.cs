@@ -67,7 +67,7 @@ namespace SmartMedPharmacy.Forms
             Order selected = dgvOrders.CurrentRow.DataBoundItem as Order;
             if (selected == null) return;
 
-            // Use the styled OrderDetailsForm — hide the admin-only status buttons
+            
             var detailsForm = new OrderDetailsForm(selected, isAdmin: false);
             detailsForm.ShowDialog(this);
         }
@@ -102,5 +102,7 @@ namespace SmartMedPharmacy.Forms
             e.CellStyle.Font      = UITheme.FontSmall;
             e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
+
+      
     }
 }
