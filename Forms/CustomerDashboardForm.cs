@@ -147,5 +147,23 @@ namespace SmartMedPharmacy.Forms
         {
 
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // CustomerDashboardForm
+            // 
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Name = "CustomerDashboardForm";
+            this.Load += new System.EventHandler(this.CustomerDashboardForm_Load_1);
+            this.ResumeLayout(false);
+
+        }
+
+        private void CustomerDashboardForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

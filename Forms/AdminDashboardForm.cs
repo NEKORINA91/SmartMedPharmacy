@@ -69,7 +69,7 @@ namespace SmartMedPharmacy.Forms
                 panelContent.Controls.Add(panelHome);
             panelHome.Dock = DockStyle.Fill;
             panelHome.Visible = true;
-            LoadStats(); // only in Admin version, remove this line for Customer
+            LoadStats(); 
         }
 
         private void btnManageMedicine_Click(object sender, EventArgs e)
@@ -169,6 +169,24 @@ namespace SmartMedPharmacy.Forms
       
 
         private void AdminDashboardForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // AdminDashboardForm
+            // 
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Name = "AdminDashboardForm";
+            this.Load += new System.EventHandler(this.AdminDashboardForm_Load_1);
+            this.ResumeLayout(false);
+
+        }
+
+        private void AdminDashboardForm_Load_1(object sender, EventArgs e)
         {
 
         }
