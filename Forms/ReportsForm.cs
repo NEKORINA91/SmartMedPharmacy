@@ -116,14 +116,17 @@ namespace SmartMedPharmacy.Forms
                 }
 
                 MessageBox.Show("PDF saved successfully!\n\n" + saveDialog.FileName,
-                    "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                
-                System.Diagnostics.Process.Start(saveDialog.FileName);
+                // Ask before opening — avoids locking the file for the next export
+                var openIt = MessageBox.Show("Open the PDF now?", "Export Complete",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (openIt == DialogResult.Yes)
+                    System.Diagnostics.Process.Start(saveDialog.FileName);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Could not export PDF.\n\n" + ex.Message,
+                MessageBox.Show("Could not export PDF.\n\n" + ex.ToString(),
                     "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -295,6 +298,6 @@ namespace SmartMedPharmacy.Forms
             }
         }
 
-       
+        
     }
 }
